@@ -54,9 +54,9 @@ class Flipkart:
                 d["mrp"] = mrp
                 d["savings"] = savings
                 d["code"] = "fk_"+str(Flipkart.x)
-                Flipkart.z.append(d)
+                z.append(d)
         with open("products_flipkart_nike_shoes.json",'a') as f:
-            json.dump(Flipkart.z,f,indent=4)
+            json.dump(z,f,indent=4)
 instance = Flipkart()
 driver_ = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver', options=chrome_options)
 driver_.get('https://www.flipkart.com/search?q=nike%20shoes&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off')
