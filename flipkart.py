@@ -4,13 +4,17 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import chromedriver_binary
-
+from selenium.webdriver.chrome.options import Options
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument('--no-sandbox')
 class Flipkart:
     z = []
     x= 0
 
     def flipkart(self,page_url):
-        driver = webdriver.Chrome()
+        
+        driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
         driver.get(page_url)
         rows = driver.find_elements_by_css_selector("div.hCUpcT > div:nth-child(2) > div.bhgxx2")
         for i in rows:
@@ -54,7 +58,7 @@ class Flipkart:
         with open("products_flipkart_nike_shoes.json",'a') as f:
             json.dump(Flipkart.z,f,indent=4)
 instance = Flipkart()
-driver_ = webdriver.Chrome()
+driver_ = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
 driver_.get('https://www.flipkart.com/search?q=nike%20shoes&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off')
 num_ = driver_.find_element_by_css_selector("div.hCUpcT > div:nth-child(2) > div:nth-child(12) div div._2zg3yZ span").text.split()[3]
 for i in range(1,int(num_)+1):
