@@ -9,10 +9,10 @@ chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument('--no-sandbox')
 class Flipkart:
-    z = []
     x= 0
 
     def flipkart(self,page_url):
+        z = []
         
         driver = webdriver.Chrome(executable_path = '/usr/lib/chromium-browser/chromedriver', options=chrome_options)
         driver.get(page_url)
